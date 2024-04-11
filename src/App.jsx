@@ -16,7 +16,7 @@ function App() {
       <Header  bag={bag}/>
       <Routes>
       <Route path="/" element={<Catalog addToBag={setBag} bag={bag}/>}></Route>
-      <Route path="/:id" element={<OneCard/>}></Route>
+      <Route path="/:id" element={<OneCard addToBag={setBag} bag={bag}/>}></Route>
       <Route path="/bag" element = {<BagPage  bag={bag}/>} />
       </Routes>
     </>

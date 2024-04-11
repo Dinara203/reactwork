@@ -3,12 +3,14 @@ import {catalog} from '../../data'
 import CardImage from '/public/Catalog/card.png'
 import './OneCard.css'
 
-export default function OneCard(){
+export default function OneCard({addTovar, addToBag, bag}){
 
         const {id} = useParams();
         const tovar =catalog.find(tovar=> tovar.id===parseInt(id))
     return(
+      
         <>
+  
          <div className="one-card">
             <div className="container">
                 <div className="links">
@@ -23,7 +25,10 @@ export default function OneCard(){
                         </div>  
                           
                         <div className="btn-like">
-                            <button className="to-bag">ДОБАВИТЬ В КОРЗИНУ</button>
+                            <button onClick={addTovar=()=> addToBag([...bag,tovar.id])} className="to-bag">ДОБАВИТЬ В КОРЗИНУ</button>
+                            
+                                   
+                                    
                         </div>  
                         <p className="text">{tovar.text}</p>            
                     </div>
